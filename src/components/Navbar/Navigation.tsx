@@ -20,7 +20,7 @@ export const Navigation = () => {
             />
           )}
         </NavLink>
-        <NavLink to='/phones'>
+        <NavLink to='/products/phones'>
           {({ isActive }) => (
             <MantineNavLink
               label='Phones'
@@ -29,7 +29,7 @@ export const Navigation = () => {
             />
           )}
         </NavLink>
-        <NavLink to='/laptop'>
+        <NavLink to='/products/laptop'>
           {({ isActive }) => (
             <MantineNavLink
               label='Laptop'
@@ -39,7 +39,7 @@ export const Navigation = () => {
           )}
         </NavLink>
 
-        <NavLink to='/tablets'>
+        <NavLink to='/products/tablets'>
           {({ isActive }) => (
             <MantineNavLink
               label='Tablets'
@@ -48,7 +48,7 @@ export const Navigation = () => {
             />
           )}
         </NavLink>
-        <NavLink to='/pc'>
+        <NavLink to='/products/pc'>
           {({ isActive }) => (
             <MantineNavLink
               label='PC'
@@ -57,7 +57,7 @@ export const Navigation = () => {
             />
           )}
         </NavLink>
-        <NavLink to='/software'>
+        <NavLink to='/products/software'>
           {({ isActive }) => (
             <MantineNavLink
               label='Software'
