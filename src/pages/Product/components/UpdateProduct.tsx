@@ -1,5 +1,5 @@
 import { Button, Center, Text, Textarea, TextInput } from "@mantine/core";
-import React, { useState } from "react";
+import React from "react";
 import { useUpdateProductMutation } from "../../../hooks/useUpdateProductMutation";
 import { IProduct } from "../../../types/IProduct";
 import { z } from "zod";
@@ -23,7 +23,7 @@ type FormFields = z.infer<typeof updateProductSchema>;
 function UpdateProduct({ product }: IUpdateProductProps) {
   const { isLoading, mutate: updateProduct, data } = useUpdateProductMutation();
 
-  const { register, handleSubmit, reset, formState } = useForm<FormFields>({
+  const { register, handleSubmit, formState } = useForm<FormFields>({
     defaultValues: {
       name: `${product.name}`,
       description: `${product.description}`,
@@ -35,20 +35,17 @@ function UpdateProduct({ product }: IUpdateProductProps) {
   });
 
   const onSubmit = async (values: FormFields) => {
-    const {price, ...rest } = values;
+    const { price, ...rest } = values;
     console.log(values);
-    updateProduct(
-      {
-        price: Number(price),
-        ...rest,
-        uuid: product._uuid
-      },
-   
-    )
+    updateProduct({
+      price: Number(price),
+      ...rest,
+      uuid: product._uuid,
+    });
   };
   return (
     <>
-    {data && <Text color="green.5">You succesfully update the product</Text>}
+      {data && <Text color="green.5">You succesfully update the product</Text>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextInput
           error={formState.errors?.name?.message}

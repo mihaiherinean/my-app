@@ -1,9 +1,16 @@
 import { Button, Card, createStyles, Image, Text } from "@mantine/core";
 import React from "react";
-import { AiOutlineMinus, AiOutlinePlus, AiOutlinePlusCircle } from "react-icons/ai";
+import {
+  AiOutlineMinus,
+  AiOutlinePlus,
+} from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { decrementQuantity, incrementQuantity, removeProduct } from "../../../store/cartSlice";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeProduct,
+} from "../../../store/cartSlice";
 import { IProduct } from "../../../types/IProduct";
 
 interface ICartProductCard {
@@ -22,41 +29,47 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexWrap: "nowrap",
   },
-  name:{
+  name: {
     "@media(max-width:550px)": {
-        height: '25px',
-        overflow:'hidden',
-      },
+      height: "25px",
+      overflow: "hidden",
+    },
   },
   infoDiv: {
     display: "flex",
-    flexDirection: 'column',
-    justifyContent:'space-around',
-    alignItems:'flex-start',
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "flex-start",
     padding: "5px",
     width: "100%",
     "@media(max-width:750px)": {
-        width: "400px",
-        height: "100px",
-      },
-      "@media(max-width:550px)": {
-        width: "320px",
-        height: "100px",
-      },
+      width: "400px",
+      height: "100px",
+    },
+    "@media(max-width:550px)": {
+      width: "320px",
+      height: "100px",
+    },
   },
-  pricebtn:{
-    marginTop: '5px',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems:'center',
-    height:'100%',
-    width:'100%',
+  pricebtn: {
+    marginTop: "5px",
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "100%",
+    width: "100%",
     "@media(max-width:450px)": {
-       justifyContent:'flex-start',
-       gap: '20px',
-      },
-  }
-  
+      justifyContent: "flex-start",
+      gap: "20px",
+    },
+  },
+  plusminus: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "5px",
+    border: "1px solid #A5D8FF",
+  },
 }));
 
 function CartProductCard({ product }: ICartProductCard) {
@@ -64,13 +77,13 @@ function CartProductCard({ product }: ICartProductCard) {
   const dispatch = useDispatch();
   const handleRemoveProduct = (e: React.MouseEvent<HTMLElement>) => {
     dispatch(removeProduct(product));
-  }
+  };
   const handleIncrementQuantity = (e: React.MouseEvent<HTMLElement>) => {
     dispatch(incrementQuantity(product));
-  }
+  };
   const handleDecrementQuantity = (e: React.MouseEvent<HTMLElement>) => {
     dispatch(decrementQuantity(product));
-  }
+  };
   return (
     <Card p={0} className={classes.card} mt={4}>
       <div className={classes.cardinfo}>
@@ -78,19 +91,33 @@ function CartProductCard({ product }: ICartProductCard) {
           <Image src={product.image} width={120} />
         </Card.Section>
         <div className={classes.infoDiv}>
-          <Text size='xs' className={classes.name}>{product.name}</Text>
+          <Text size="xs" className={classes.name}>
+            {product.name}
+          </Text>
           <div className={classes.pricebtn}>
-          <Text size="md">
-            {product.price} Lei
-          </Text>
-          <div style={{display: 'flex', justifyContent:'center',alignItems:'center', gap: '5px'}}>
-            <Button size="xs" variant="subtle" onClick={handleIncrementQuantity}><AiOutlinePlus size={20}/></Button>
-          <Text size="md">
-           x{product.cartQuantity}
-          </Text>
-          <Button size="xs" variant="subtle" onClick={handleDecrementQuantity}><AiOutlineMinus size={20}/></Button>
-          </div>
-          <Button size="xs" variant="subtle" onClick={handleRemoveProduct}><BsTrash size={16} color="red"/></Button>
+            <Text size="md">{product.price} Lei</Text>
+            <div className={classes.plusminus}>
+              <Button
+                size="xs"
+                variant="subtle"
+                onClick={handleIncrementQuantity}
+              >
+                <AiOutlinePlus size={20} />
+              </Button>
+              <Text size="md" color="blue.2">
+                {product.cartQuantity}
+              </Text>
+              <Button
+                size="xs"
+                variant="subtle"
+                onClick={handleDecrementQuantity}
+              >
+                <AiOutlineMinus size={20} />
+              </Button>
+            </div>
+            <Button size="xs" variant="subtle" onClick={handleRemoveProduct}>
+              <BsTrash size={16} color="red" />
+            </Button>
           </div>
         </div>
       </div>

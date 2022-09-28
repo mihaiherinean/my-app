@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useDeleteProductMutation } from "../../../hooks/useDeleteProductMutation";
 import { IProduct } from "../../../types/IProduct";
 
-
 interface IDeleteProductProp {
   product: IProduct;
 }
@@ -37,7 +36,6 @@ function DeleteProduct({ product }: IDeleteProductProp) {
           </Alert>
         </Modal>
       )}
-      
     </>
   );
 }

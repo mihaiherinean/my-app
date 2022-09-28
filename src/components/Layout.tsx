@@ -47,11 +47,9 @@ export default function Layout() {
         </Navbar>
       }
       footer={
-       
         <Footer height={105}>
           <MyFooter />
         </Footer>
-        
       }
       header={
         <Header height={70} p="md">

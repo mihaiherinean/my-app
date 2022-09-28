@@ -6,17 +6,23 @@ import { FiTwitter, FiFacebook, FiYoutube } from "react-icons/fi";
 export function Footer() {
   return (
     <>
-      <Box >
+      <Box>
         <Center py="lg">
-        <AiOutlineCopyrightCircle style={{ marginRight: 4 }} />
-        <Text size='xs'>Copyright 2022-2023 eShop</Text>
+          <AiOutlineCopyrightCircle style={{ marginRight: 4 }} />
+          <Text size="xs">Copyright 2022-2023 eShop</Text>
         </Center>
         <Group position="center" spacing="xl">
-         <Button variant="subtle" radius='xl' size="xs"><FiTwitter size={18}/></Button> 
-         <Button variant="subtle" radius='xl' size="xs"><FiFacebook size={18} /></Button> 
-         <Button variant="subtle" radius='xl' size="xs"><FiYoutube size={18} /></Button> 
-         </Group>
-        </Box>
+          <Button variant="subtle" radius="xl" size="xs">
+            <FiTwitter size={18} />
+          </Button>
+          <Button variant="subtle" radius="xl" size="xs">
+            <FiFacebook size={18} />
+          </Button>
+          <Button variant="subtle" radius="xl" size="xs">
+            <FiYoutube size={18} />
+          </Button>
+        </Group>
+      </Box>
     </>
   );
 }

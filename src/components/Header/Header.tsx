@@ -7,7 +7,7 @@ function Header() {
   return (
     <Group position="apart" noWrap style={{ width: "100%" }}>
       <Group>
-      <Logo />
+        <Logo />
       </Group>
       <Group noWrap>
         <CartButton />

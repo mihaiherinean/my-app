@@ -14,7 +14,6 @@ import { useState } from "react";
 import UpdateProduct from "./components/UpdateProduct";
 import DeleteProduct from "./components/DeleteProduct";
 
-
 function Product() {
   const { uuid } = useParams();
   const { isError, isLoading, data: product } = useProductQuery(uuid || "");
@@ -54,7 +53,6 @@ function Product() {
           title="Edit the product"
         >
           <UpdateProduct product={product} />
-          
         </Modal>
         <Button
           variant="outline"
@@ -63,7 +61,7 @@ function Product() {
         >
           Edit product
         </Button>
-        <DeleteProduct product={product}/>
+        <DeleteProduct product={product} />
       </div>
       <ProductDetails product={product} />
     </>
